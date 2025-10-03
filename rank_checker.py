@@ -16,7 +16,7 @@ if st.button("🚀 Check Google Rankings"):
     else:
         with st.spinner("🛰️ Checking rankings via SearchAPI.io..."):
             results = []
-            API_KEY = "YOUR_SEARCHAPI_KEY"
+            API_KEY = st.secrets["SEARCHAPI_KEY"]
             for kw in keywords:
                 rank, page = None, None
                 max_results = 100
@@ -55,3 +55,4 @@ if st.button("🚀 Check Google Rankings"):
         df = pd.DataFrame(results)
         st.success("✅ Done checking rankings!")
         st.dataframe(df)
+
